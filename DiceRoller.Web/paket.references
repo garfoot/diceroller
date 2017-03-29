@@ -1,0 +1,9 @@
+﻿Autofac
+Autofac.Extensions.DependencyInjection
+Microsoft.AspNetCore
+Microsoft.AspNetCore.Mvc
+Microsoft.AspNetCore.Mvc.Core
+Microsoft.AspNetCore.StaticFiles
+Microsoft.VisualStudio.Web.BrowserLink.Loader
+Microsoft.AspNetCore.SignalR.Server
+Microsoft.AspNetCore.WebSockets

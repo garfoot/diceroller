@@ -1,0 +1,15 @@
+source https://api.nuget.org/v3/index.json
+source https://dotnet.myget.org/F/aspnetcore-ci-dev/api/v3/index.json
+
+framework: >= netstandard10
+strategy: max
+
+nuget Autofac
+nuget Autofac.Extensions.DependencyInjection
+nuget Microsoft.AspNetCore
+nuget Microsoft.AspNetCore.Mvc
+nuget Microsoft.AspNetCore.Mvc.Core
+nuget Microsoft.AspNetCore.StaticFiles
+nuget Microsoft.VisualStudio.Web.BrowserLink.Loader
+nuget Microsoft.AspNetCore.SignalR.Server
+nuget Microsoft.AspNetCore.WebSockets

@@ -1,0 +1,25 @@
+﻿@using System
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+    <script src="lib/jQuery/dist/jquery.min.js"></script>
+
+
+    @RenderSection("scripts", false)
+</head>
+
+<body>
+<div class="container">
+    @RenderBody()
+</div>
+
+@RenderSection("BodyScripts", false)
+
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

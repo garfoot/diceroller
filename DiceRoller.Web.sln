@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRoller.Web", "DiceRoller.Web\DiceRoller.Web.csproj", "{C6971170-864A-4A1D-B165-2D46F6919708}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{B6992FEF-7781-418F-9EAB-921D03627980}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+		.paket\Paket.Restore.targets = .paket\Paket.Restore.targets
+		.paket\paket.targets = .paket\paket.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".git", ".git", "{4CD727F6-91CE-4D0B-BC9E-DDD0244FADE6}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6971170-864A-4A1D-B165-2D46F6919708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6971170-864A-4A1D-B165-2D46F6919708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6971170-864A-4A1D-B165-2D46F6919708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6971170-864A-4A1D-B165-2D46F6919708}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
