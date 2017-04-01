@@ -1,12 +1,14 @@
 ﻿@using System
+@using DiceRoller.Web.Components
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>@ViewBag.Title</title>
     
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="~/css/site.css" />
     <script src="lib/jQuery/dist/jquery.min.js"></script>
+    <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
 
 
     @RenderSection("scripts", false)
@@ -14,10 +16,12 @@
 
 <body>
 <div class="container">
+    @await Component.InvokeAsync(typeof(NavBar))
+
     @RenderBody()
 </div>
 
-@RenderSection("BodyScripts", false)
+@RenderSection("body_scripts", false)
 
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 

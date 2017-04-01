@@ -7,3 +7,4 @@ Microsoft.AspNetCore.StaticFiles
 Microsoft.VisualStudio.Web.BrowserLink.Loader
 Microsoft.AspNetCore.SignalR.Server
 Microsoft.AspNetCore.WebSockets
+FluentValidation

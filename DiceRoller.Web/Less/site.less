@@ -1,0 +1,24 @@
+﻿@import "../wwwroot/lib/bootstrap/less/bootstrap.less";
+@import "darkly_variables.less";
+@import "darkly_bootswatch.less";
+
+body {
+    padding-top: 75px;
+}
+
+@keyframes error-pulse {
+    from {
+        box-shadow: 0 0 0px @brand-danger
+    }
+
+    to {
+        box-shadow: 0 0 20px @brand-danger
+    }
+}
+
+.form-control.error-highlight, .form-control.error-highlight:focus {
+    animation-name: error-pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

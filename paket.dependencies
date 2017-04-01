@@ -13,3 +13,4 @@ nuget Microsoft.AspNetCore.StaticFiles
 nuget Microsoft.VisualStudio.Web.BrowserLink.Loader
 nuget Microsoft.AspNetCore.SignalR.Server
 nuget Microsoft.AspNetCore.WebSockets
+nuget FluentValidation

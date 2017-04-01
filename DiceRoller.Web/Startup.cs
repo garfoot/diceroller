@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using DiceRoller.Web.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +18,10 @@ namespace DiceRoller.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddAntiforgery();
+            services
+                .AddMvc();
+
             services.AddSignalR(options =>
             {
                 options.Hubs.EnableDetailedErrors = true;
@@ -24,6 +29,7 @@ namespace DiceRoller.Web
 
             var builder = new ContainerBuilder();
             builder.Populate(services);
+            builder.RegisterModule<CoreModule>();
 
             ApplicationContainer = builder.Build();
 

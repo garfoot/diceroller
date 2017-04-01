@@ -1,4 +1,5 @@
-﻿@model dynamic
+﻿@using System
+@model dynamic
 
 @{
     ViewBag.Title = "DiceRoller 2000";
@@ -11,4 +12,55 @@
     <script src="js/diceHub.js"></script>
 }
 
-Hello World  
+<div class="row">
+    <div class="col-md-12">
+        <h2>Enter your room number below</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel">
+            <div class="panel-body">
+                <form id="frmJoin" class="form-inline" action="@Url.Action("JoinRoom", "Room")" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label for="roomId" class="sr-only">Room ID</label>
+                        <input id="roomId" name="roomId" type="text" class="form-control" placeholder="Room id"
+                               required data-msg="You must enter a room id to join."
+                        />
+
+                        <label for="name" class="sr-only">Your name</label>
+                        <input id="name" name="name" class="form-control" type="text" placeholder="Your name"
+                               required data-msg="You must enter a name to join the room as."/>
+
+                        <input id="btnJoin" type="submit" class="btn btn-info" />
+                    </div>
+
+                </form>
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-md-12">
+                        <ul id="errorMessages" class="list-unstyled text-danger">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section body_scripts
+{
+    <script>
+        $(document).ready(function(){
+            $("#frmJoin").validate({
+                errorLabelContainer: "#errorMessages",
+                wrapper: "li",
+                errorClass: "error-highlight"
+            });
+        });
+
+
+    </script>
+}

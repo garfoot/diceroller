@@ -6,7 +6,6 @@ namespace DiceRoller.Web.Services.Hubs
     {
         public void Connect(string roomName)
         {
-            Clients.Caller.connectedToRoom(roomName, new[]{"Rob", "Andy", "Holly"});
         }
     }
 }
