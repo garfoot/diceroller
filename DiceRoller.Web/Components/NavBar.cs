@@ -6,9 +6,9 @@ namespace DiceRoller.Web.Components
     [ViewComponent(Name = "navBar")]
     public class NavBar : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        public Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            return Task.FromResult((IViewComponentResult)View());
         }
     }
 }

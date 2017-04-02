@@ -7029,3 +7029,17 @@ body {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+textarea.message-console {
+  width: 100%;
+  height: 100px;
+}
+div.dice-rolling-area {
+  min-height: 400px;
+}
+ul.player-list {
+  padding-left: 0;
+  list-style: none;
+}
+ul.player-list > li {
+  color: #3498DB;
+}

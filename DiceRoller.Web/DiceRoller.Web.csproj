@@ -5,7 +5,8 @@
   <ItemGroup>
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\site.min.css" />
-    <Content Include="wwwroot\js\diceHub.js" />
+    <Content Include="wwwroot\js\dice.js" />
+    <Content Include="wwwroot\js\dicePage.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Home\" />

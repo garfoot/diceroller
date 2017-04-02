@@ -4,6 +4,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "jQuery": "^3.2.1",
-    "jquery-validation": "^1.16.0"
+    "jquery-validation": "^1.16.0",
+    "knockout": "^3.4.2"
   }
 }

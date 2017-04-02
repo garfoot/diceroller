@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using DiceRoller.Web.Services.Dice;
 
 namespace DiceRoller.Web.Modules
 {
@@ -10,6 +11,12 @@ namespace DiceRoller.Web.Modules
                 .RegisterAssemblyTypes(ThisAssembly)
                 .AsSelf()
                 .AsImplementedInterfaces();
+
+            builder
+                .RegisterType<DiceService>()
+                .AsSelf()
+                .AsImplementedInterfaces()
+                .SingleInstance();
         }
     }
 }
