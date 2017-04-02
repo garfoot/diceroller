@@ -2,7 +2,7 @@
 @import "darkly_variables.less";
 @import "darkly_bootswatch.less";
 
-@dice-base: #035f0f;
+@dice-base: @brand-info;
 
 body {
     padding-top: 75px;
@@ -62,27 +62,46 @@ ul.selected-dice .die {
 }
 
 
+.die-base {
+    color: @dice-base;
+    display: block;
+    width:120px;
+    height: 130px;
+}
+
 // Dice appearances
 .die[data-die='d4'] {
-    color: @dice-base;
+    .die-base;
+    background: url("/img/d4.png") center no-repeat @gray-dark;
 }
 
 .die[data-die='d6'] {
-    color: lighten(@dice-base, 10%);
+    .die-base;
+    background: url("/img/d6.png") center no-repeat @gray-dark;
 }
 
 .die[data-die='d8'] {
-    color: lighten(@dice-base, 20%);
+    .die-base;
+    background: url("/img/d8.png") center no-repeat @gray-dark;
+}
+
+.die[data-die='d10'] {
+    .die-base;
+    background: url("/img/d10.png") center no-repeat @gray-dark;
 }
 
 .die[data-die='d12'] {
-    color: lighten(@dice-base, 30%);
+    .die-base;
+    background: url("/img/d12.png") center no-repeat @gray-dark;
 }
 
 .die[data-die='d20'] {
-    color: lighten(@dice-base, 40%);
+    .die-base;
+    background: url("/img/d20.png") center no-repeat @gray-dark;
 }
 
 .die[data-die='d100'] {
-    color: lighten(@dice-base, 50%);
+    .die-base;
+    background: url("/img/d100.png") center no-repeat @gray-dark;
+    height: 95px + 20px;
 }

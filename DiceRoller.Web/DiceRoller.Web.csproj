@@ -5,6 +5,13 @@
   <ItemGroup>
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\site.min.css" />
+    <Content Include="wwwroot\img\d10.png" />
+    <Content Include="wwwroot\img\d100.png" />
+    <Content Include="wwwroot\img\d12.png" />
+    <Content Include="wwwroot\img\d20.png" />
+    <Content Include="wwwroot\img\d4.png" />
+    <Content Include="wwwroot\img\d6.png" />
+    <Content Include="wwwroot\img\d8.png" />
     <Content Include="wwwroot\js\dice.js" />
     <Content Include="wwwroot\js\dicePage.js" />
   </ItemGroup>

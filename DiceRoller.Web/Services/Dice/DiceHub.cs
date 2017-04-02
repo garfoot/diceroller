@@ -47,7 +47,7 @@ namespace DiceRoller.Web.Services.Dice
         {
             Clients.Caller.updateDiceList(new[]
             {
-                "d4", "d6", "d8", "d12", "d20", "d100"
+                "d4", "d6", "d8", "d10", "d12", "d20", "d100"
             });
         }
 
@@ -60,7 +60,7 @@ namespace DiceRoller.Web.Services.Dice
             if (player != null)
             {
                 player.Dice.Add(die);
-                Clients.Group(room.Id).selectedDice(player.Dice);
+                Clients.Group(room.Id).selectedDice(player.Name, player.Dice);
             }
         }
 

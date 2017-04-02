@@ -3,6 +3,7 @@
         players: ko.observableArray(),
         availableDice: ko.observableArray(),
         selectedDice: ko.observableArray(),
+        playerRolling: ko.observable(),
         dieClicked: dieClicked
 };
 
@@ -53,8 +54,9 @@
         viewModel.availableDice(dice);
     }
 
-    function selectedDiceUpdated(dice) {
+    function selectedDiceUpdated(player, dice) {
         viewModel.selectedDice(dice);
+        viewModel.playerRolling(player);
     }
 
     function errorMessage(message) {

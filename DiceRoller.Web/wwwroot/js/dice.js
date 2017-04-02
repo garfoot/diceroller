@@ -23,8 +23,8 @@
         callerOptions.diceListUpdated && callerOptions.diceListUpdated(dice);
     }
 
-    diceHub.client.selectedDice = function(dice) {
-        callerOptions.selectedDiceUpdated && callerOptions.selectedDiceUpdated(dice);
+    diceHub.client.selectedDice = function(player, dice) {
+        callerOptions.selectedDiceUpdated && callerOptions.selectedDiceUpdated(player, dice);
     }
 
     function init(options) {

@@ -7063,21 +7063,59 @@ ul.selected-dice > li {
 ul.selected-dice .die {
   cursor: pointer;
 }
+.die-base {
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+}
 .die[data-die='d4'] {
-  color: #035f0f;
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+  background: url("/img/d4.png") center no-repeat #303030;
 }
 .die[data-die='d6'] {
-  color: #059017;
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+  background: url("/img/d6.png") center no-repeat #303030;
 }
 .die[data-die='d8'] {
-  color: #06c21f;
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+  background: url("/img/d8.png") center no-repeat #303030;
+}
+.die[data-die='d10'] {
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+  background: url("/img/d10.png") center no-repeat #303030;
 }
 .die[data-die='d12'] {
-  color: #08f326;
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+  background: url("/img/d12.png") center no-repeat #303030;
 }
 .die[data-die='d20'] {
-  color: #35f94f;
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+  background: url("/img/d20.png") center no-repeat #303030;
 }
 .die[data-die='d100'] {
-  color: #67fa7a;
+  color: #3498DB;
+  display: block;
+  width: 120px;
+  height: 130px;
+  background: url("/img/d100.png") center no-repeat #303030;
+  height: 115px;
 }

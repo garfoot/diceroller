@@ -26,33 +26,36 @@
     </div>
 
     <div class="col-sm-8">
-        @* Dice rolling area*@
-        <div class="well dice-rolling-area">
-            Roll some dice!
+        <div class="row">
+            <div class="col-sm-12">
+                @* Dice rolling area*@
+                <div class="well dice-rolling-area">
+                    Roll some dice!
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Selected Dice (<span data-bind="text: playerRolling"></span>)
+                    <ul class="selected-dice" data-bind="foreach: selectedDice">
+                        <li>
+                            <span class="die" data-bind="text: $data, attr:{'data-die': $data}, click: $parent.dieRemoveClicked"></span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-info" type="button">Roll</button>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="col-sm-2">
-        @* Dice select area*@
+        @* Available dice area*@
         Dice
         <ul data-bind="foreach: availableDice" class="dice-list">
             <li>
-                <span class="die" data-bind="text: $data, attr:{'data-die': $data}, click: $parent.dieClicked"></span>
+                <div class="die" data-bind="text: $data, attr:{'data-die': $data}, click: $parent.dieClicked"></div>
             </li>
         </ul>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-        Selected Dice
-        <ul class="selected-dice" data-bind="foreach: selectedDice">
-            <li>
-                <span class="die" data-bind="text: $data, attr:{'data-die': $data}, click: $parent.dieRemoveClicked"></span>
-            </li>
-        </ul>
-        
-        <button class="btn btn-info" type="button">Roll</button>
     </div>
 </div>
 
