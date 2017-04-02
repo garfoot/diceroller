@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.CodeAnalysis;
 
 namespace DiceRoller.Web.Services.Dice
 {
@@ -42,6 +40,27 @@ namespace DiceRoller.Web.Services.Dice
             catch (InvalidOperationException)
             {
                 Clients.Caller.error("A player with that name already exists in this room.");
+            }
+        }
+
+        public void GetDiceList()
+        {
+            Clients.Caller.updateDiceList(new[]
+            {
+                "d4", "d6", "d8", "d12", "d20", "d100"
+            });
+        }
+
+        public async Task AddDie(string die)
+        {
+            // Grab the first room that this person is in
+            var room =  (await _diceService.GetRoomsForConnectionId(Context.ConnectionId)).FirstOrDefault();
+            PlayerInfo player = (await room.GetPlayers()).Values.FirstOrDefault(i => i.ConnectionId == Context.ConnectionId);
+
+            if (player != null)
+            {
+                player.Dice.Add(die);
+                Clients.Group(room.Id).selectedDice(player.Dice);
             }
         }
 

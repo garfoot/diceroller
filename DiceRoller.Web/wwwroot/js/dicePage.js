@@ -1,7 +1,10 @@
 ﻿var dicePage = function () {
     let viewModel = {
-        players: ko.observableArray()
-    };
+        players: ko.observableArray(),
+        availableDice: ko.observableArray(),
+        selectedDice: ko.observableArray(),
+        dieClicked: dieClicked
+};
 
 
     function init(roomId, player) {
@@ -14,6 +17,8 @@
                     playerJoined: newPlayer,
                     playerLeft: playerLeft,
                     playerList: updatedPlayerList,
+                    diceListUpdated: diceListUpdated,
+                    selectedDiceUpdated: selectedDiceUpdated,
                     error: errorMessage
                 })
                 .then(function() {
@@ -21,6 +26,8 @@
                         roomId: roomId,
                         player: player
                     });
+
+                    dice.getDiceList();
 
                     logToConsole("Connected to the room.");
                 });
@@ -42,8 +49,20 @@
         viewModel.players(players);
     }
 
+    function diceListUpdated(dice) {
+        viewModel.availableDice(dice);
+    }
+
+    function selectedDiceUpdated(dice) {
+        viewModel.selectedDice(dice);
+    }
+
     function errorMessage(message) {
         logToConsole(`ERROR: ${message}`);
+    }
+
+    function dieClicked(data, evt) {
+        dice.addDie(data);
     }
 
     function logToConsole(message) {

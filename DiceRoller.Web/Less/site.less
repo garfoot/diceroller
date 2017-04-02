@@ -2,6 +2,8 @@
 @import "darkly_variables.less";
 @import "darkly_bootswatch.less";
 
+@dice-base: #035f0f;
+
 body {
     padding-top: 75px;
 }
@@ -38,4 +40,49 @@ ul.player-list{
 
 ul.player-list > li{
     color: @brand-info;
+}
+
+// The available dice list
+ul.dice-list{
+    .list-unstyled;
+}
+
+ul.dice-list .die {
+    cursor: copy;
+}
+
+// The selected dice list
+ul.selected-dice {
+    .list-unstyled;
+    .list-inline
+}
+
+ul.selected-dice .die {
+    cursor: pointer;
+}
+
+
+// Dice appearances
+.die[data-die='d4'] {
+    color: @dice-base;
+}
+
+.die[data-die='d6'] {
+    color: lighten(@dice-base, 10%);
+}
+
+.die[data-die='d8'] {
+    color: lighten(@dice-base, 20%);
+}
+
+.die[data-die='d12'] {
+    color: lighten(@dice-base, 30%);
+}
+
+.die[data-die='d20'] {
+    color: lighten(@dice-base, 40%);
+}
+
+.die[data-die='d100'] {
+    color: lighten(@dice-base, 50%);
 }

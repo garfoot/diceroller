@@ -19,6 +19,14 @@
         callerOptions.playerLeft && callerOptions.playerLeft(player);
     }
 
+    diceHub.client.updateDiceList = function(dice) {
+        callerOptions.diceListUpdated && callerOptions.diceListUpdated(dice);
+    }
+
+    diceHub.client.selectedDice = function(dice) {
+        callerOptions.selectedDiceUpdated && callerOptions.selectedDiceUpdated(dice);
+    }
+
     function init(options) {
         callerOptions = options;
 
@@ -33,18 +41,23 @@
         return promise;
     }
 
-    diceHub.client.connectedToRoom = function (roomName, members) {
-        alert(`Connected to room ${roomName} with members ${members}`);
-    };
-
-
     function connect(options) {
         diceHub.server.connect(options.roomId, options.player);
     }
 
+    function getDiceList() {
+        diceHub.server.getDiceList();
+    }
+
+    function addDie(die) {
+        diceHub.server.addDie(die);
+    }
+
     return {
-        init: init,
-        connect: connect
+        init,
+        connect,
+        getDiceList,
+        addDie
     };
 }();
 

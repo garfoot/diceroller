@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DiceRoller.Web.Services.Dice
 {
@@ -18,6 +19,11 @@ namespace DiceRoller.Web.Services.Dice
         ///     Their connection ID in SignalR
         /// </summary>
         public string ConnectionId { get; set; }
+
+        /// <summary>
+        ///     A list of the dice for this player
+        /// </summary>
+        public IList<string> Dice { get; set; } = new List<string>();
 
         public bool Equals(PlayerInfo other)
         {

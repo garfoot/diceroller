@@ -7043,3 +7043,41 @@ ul.player-list {
 ul.player-list > li {
   color: #3498DB;
 }
+ul.dice-list {
+  padding-left: 0;
+  list-style: none;
+}
+ul.dice-list .die {
+  cursor: copy;
+}
+ul.selected-dice {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
+ul.selected-dice > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+ul.selected-dice .die {
+  cursor: pointer;
+}
+.die[data-die='d4'] {
+  color: #035f0f;
+}
+.die[data-die='d6'] {
+  color: #059017;
+}
+.die[data-die='d8'] {
+  color: #06c21f;
+}
+.die[data-die='d12'] {
+  color: #08f326;
+}
+.die[data-die='d20'] {
+  color: #35f94f;
+}
+.die[data-die='d100'] {
+  color: #67fa7a;
+}

@@ -24,7 +24,7 @@
             </li>
         </ul>
     </div>
-    
+
     <div class="col-sm-8">
         @* Dice rolling area*@
         <div class="well dice-rolling-area">
@@ -34,14 +34,32 @@
 
     <div class="col-sm-2">
         @* Dice select area*@
-        Dice select area
+        Dice
+        <ul data-bind="foreach: availableDice" class="dice-list">
+            <li>
+                <span class="die" data-bind="text: $data, attr:{'data-die': $data}, click: $parent.dieClicked"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        Selected Dice
+        <ul class="selected-dice" data-bind="foreach: selectedDice">
+            <li>
+                <span class="die" data-bind="text: $data, attr:{'data-die': $data}, click: $parent.dieRemoveClicked"></span>
+            </li>
+        </ul>
+        
+        <button class="btn btn-info" type="button">Roll</button>
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm-12">
         @* Console *@
-        
+
         <textarea id="consoleMessages" readonly class="message-console"></textarea>
     </div>
 </div>
@@ -51,6 +69,8 @@
 {
     <script src="/js/dicePage.js"></script>
     <script>
-        dicePage.init("@Model.RoomId", "@Model.Player");
+        $(document).ready(function() {
+            dicePage.init("@Model.RoomId", "@Model.Player");
+        });
     </script>
 }
