@@ -63,11 +63,20 @@ namespace DiceRoller.Web.Services.Dice
 
             if (player != null)
             {
-                player.Dice.Add(die);
+                player.Dice.Add(new DiceInfo(die));
 
                 // Notify the players in the room of the dice for this player
                 Clients.Group(player.CurrentRoom).selectedDice(player.Name, player.Dice);
             }
+        }
+
+        public void RemoveDie(DiceInfo die)
+        {
+            PlayerInfo player = _playerService.GetPlayerById(Context.ConnectionId);
+
+            player.Dice.Remove(die);
+
+            Clients.Group(player.CurrentRoom).selectedDice(player.Name, player.Dice);
         }
     }
 }

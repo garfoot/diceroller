@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DiceRoller.Web.Services.Dice;
 
 namespace DiceRoller.Web.Services.Players
 {
@@ -23,7 +24,7 @@ namespace DiceRoller.Web.Services.Players
         /// <summary>
         ///     A list of the dice for this player
         /// </summary>
-        public IList<string> Dice { get; set; } = new List<string>();
+        public IList<DiceInfo> Dice { get; set; } = new List<DiceInfo>();
 
         /// <summary>
         ///     The current room that the player is in or null.

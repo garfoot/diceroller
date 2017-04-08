@@ -53,11 +53,16 @@
         diceHub.server.addDie(die);
     }
 
+    function removeDie(die) {
+        diceHub.server.removeDie(die);
+    }
+
     return {
         init,
         connect,
         getDiceList,
-        addDie
+        addDie,
+        removeDie
     };
 }();
 

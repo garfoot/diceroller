@@ -4,7 +4,8 @@
         availableDice: ko.observableArray(),
         selectedDice: ko.observableArray(),
         playerRolling: ko.observable(),
-        dieClicked: dieClicked
+        dieClicked: dieClicked,
+        dieRemoveClicked: dieRemoveClicked
 };
 
 
@@ -67,12 +68,16 @@
         dice.addDie(data);
     }
 
+    function dieRemoveClicked(data, evt) {
+        dice.removeDie(data);
+    }
+
     function logToConsole(message) {
         var currentMessage = $("#consoleMessages").val();
         $("#consoleMessages").val(currentMessage + message + "\r\n");
     }
 
     return {
-        init: init
+        init
     };
 }();

@@ -3,7 +3,7 @@
 @section scripts
 {
     <script src="/lib/knockout/dist/knockout.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.1.min.js"></script>
     <script src="/signalr/hubs"></script>
     <script src="/js/dice.js"></script>
 }
@@ -38,7 +38,7 @@
                     Selected Dice (<span data-bind="text: playerRolling"></span>)
                     <ul class="selected-dice" data-bind="foreach: selectedDice">
                         <li>
-                            <span class="die" data-bind="text: $data, attr:{'data-die': $data}, click: $parent.dieRemoveClicked"></span>
+                            <span class="die" data-bind="text: $data.Die, attr:{'data-die': $data.Die}, click: $parent.dieRemoveClicked"></span>
                         </li>
                     </ul>
                     <button class="btn btn-info" type="button">Roll</button>

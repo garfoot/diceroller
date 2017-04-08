@@ -47,8 +47,8 @@ namespace DiceRoller.Web
                 app.UseBrowserLink();
             }
 
-            app.UseMvc();
             app.UseStaticFiles();
+            app.UseMvc();
             app.UseWebSockets();
             app.UseSignalR();
 
