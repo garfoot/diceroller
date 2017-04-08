@@ -1,46 +1,52 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using DiceRoller.Web.Services.Players;
+using DiceRoller.Web.Services.Rooms;
 using Microsoft.AspNetCore.SignalR;
 
 namespace DiceRoller.Web.Services.Dice
 {
     public class DiceHub : Hub
     {
-        private readonly IDiceService _diceService;
+        private readonly IPlayerService _playerService;
+        private readonly IRoomService _roomService;
 
-        public DiceHub(IDiceService diceService)
+        public DiceHub(
+            IPlayerService playerService,
+            IRoomService roomService
+            )
         {
-            _diceService = diceService;
+            _playerService = playerService;
+            _roomService = roomService;
         }
 
         public async Task Connect(string roomId, string player)
         {
-            RoomInfo room = await _diceService.GetRoom(roomId);
+            PlayerInfo playerInfo = _playerService.GetPlayerByName(player);
 
-            try
+            // If we don't have a player create one
+            if (playerInfo == null)
             {
-                // Get the players from the room
-                var players = await room.GetPlayers();
-
-                // Try and add the new player, if this returns true then we have added them as a new player, false and
-                // they were already in there
-                if (await room.AddPlayer(new PlayerInfo {Name = player, Address = GetCallerAddress(), ConnectionId = Context.ConnectionId}))
+                playerInfo = new PlayerInfo
                 {
-                    // Notify all of the other members of the group that this player joined
-                    Clients.Group(roomId, Context.ConnectionId).playerJoined(player);
-                }
+                    Name = player,
+                    Address = Context.Request.HttpContext.Connection.RemoteIpAddress.ToString(),
+                    ConnectionId = Context.ConnectionId
+                };
 
-                // Add the player to a group with this roomId name, may already be in there but also might have a new connection ID
-                await Groups.Add(Context.ConnectionId, roomId);
+                _playerService.AddPlayer(playerInfo);
+            }
 
-                // Send them the current room player list
-                Clients.Caller.playerList(players.Select(i => i.Value.Name));
-            }
-            catch (InvalidOperationException)
-            {
-                Clients.Caller.error("A player with that name already exists in this room.");
-            }
+            await _roomService.AddPlayerToRoom(playerInfo, roomId);
+        }
+
+        public override async Task OnDisconnected(bool stopCalled)
+        {
+            PlayerInfo player = _playerService.GetPlayerById(Context.ConnectionId);
+
+            _playerService.RemovePlayer(player);
+            await _roomService.RemovePlayer(player, true);
         }
 
         public void GetDiceList()
@@ -51,37 +57,17 @@ namespace DiceRoller.Web.Services.Dice
             });
         }
 
-        public async Task AddDie(string die)
+        public void AddDie(string die)
         {
-            // Grab the first room that this person is in
-            var room =  (await _diceService.GetRoomsForConnectionId(Context.ConnectionId)).FirstOrDefault();
-            PlayerInfo player = (await room.GetPlayers()).Values.FirstOrDefault(i => i.ConnectionId == Context.ConnectionId);
+            PlayerInfo player = _playerService.GetPlayerById(Context.ConnectionId);
 
             if (player != null)
             {
                 player.Dice.Add(die);
-                Clients.Group(room.Id).selectedDice(player.Name, player.Dice);
+
+                // Notify the players in the room of the dice for this player
+                Clients.Group(player.CurrentRoom).selectedDice(player.Name, player.Dice);
             }
-        }
-
-        public override async Task OnDisconnected(bool stopCalled)
-        {
-            var rooms =  await _diceService.GetRoomsForConnectionId(Context.ConnectionId);
-
-            foreach (RoomInfo room in rooms)
-            {
-                var players = await room.RemovePlayers(i => i.ConnectionId == Context.ConnectionId);
-
-                foreach (PlayerInfo player in players)
-                {
-                    Clients.Group(room.Id).playerLeft(player.Name);
-                }
-            }
-        }
-
-        private string GetCallerAddress()
-        {
-            return Context.Request.HttpContext.Connection.RemoteIpAddress.ToString();
         }
     }
 }

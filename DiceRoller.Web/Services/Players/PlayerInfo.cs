@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DiceRoller.Web.Services.Dice
+namespace DiceRoller.Web.Services.Players
 {
     public class PlayerInfo : IEquatable<PlayerInfo>
     {
@@ -25,26 +25,32 @@ namespace DiceRoller.Web.Services.Dice
         /// </summary>
         public IList<string> Dice { get; set; } = new List<string>();
 
+        /// <summary>
+        ///     The current room that the player is in or null.
+        /// </summary>
+        public string CurrentRoom { get; set; }
+
+
         public bool Equals(PlayerInfo other)
         {
-            if (ReferenceEquals(null, other))
+            if (Object.ReferenceEquals(null, other))
             {
                 return false;
             }
-            if (ReferenceEquals(this, other))
+            if (Object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            return string.Equals(Name, other.Name) && string.Equals(Address, other.Address);
+            return string.Equals((string) Name, (string) other.Name) && string.Equals((string) Address, (string) other.Address);
         }
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj))
+            if (Object.ReferenceEquals(null, obj))
             {
                 return false;
             }
-            if (ReferenceEquals(this, obj))
+            if (Object.ReferenceEquals(this, obj))
             {
                 return true;
             }
@@ -65,12 +71,12 @@ namespace DiceRoller.Web.Services.Dice
 
         public static bool operator ==(PlayerInfo left, PlayerInfo right)
         {
-            return Equals(left, right);
+            return Object.Equals(left, right);
         }
 
         public static bool operator !=(PlayerInfo left, PlayerInfo right)
         {
-            return !Equals(left, right);
+            return !Object.Equals(left, right);
         }
     }
 }

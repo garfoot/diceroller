@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using DiceRoller.Web.Services.Dice;
+using DiceRoller.Web.Services.Players;
+using DiceRoller.Web.Services.Rooms;
 
 namespace DiceRoller.Web.Modules
 {
@@ -13,7 +15,13 @@ namespace DiceRoller.Web.Modules
                 .AsImplementedInterfaces();
 
             builder
-                .RegisterType<DiceService>()
+                .RegisterType<RoomService>()
+                .AsSelf()
+                .AsImplementedInterfaces()
+                .SingleInstance();
+
+            builder
+                .RegisterType<PlayerService>()
                 .AsSelf()
                 .AsImplementedInterfaces()
                 .SingleInstance();
