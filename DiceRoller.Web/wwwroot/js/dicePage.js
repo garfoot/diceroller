@@ -3,9 +3,11 @@
         players: ko.observableArray(),
         availableDice: ko.observableArray(),
         selectedDice: ko.observableArray(),
+        mySelectedDice: ko.observableArray(),
         playerRolling: ko.observable(),
         dieClicked: dieClicked,
-        dieRemoveClicked: dieRemoveClicked
+        dieRemoveClicked: dieRemoveClicked,
+        me: ko.observable(),
 };
 
 
@@ -30,7 +32,7 @@
                     });
 
                     dice.getDiceList();
-
+                    viewModel.me = player;
                     logToConsole("Connected to the room.");
                 });
         });
@@ -58,6 +60,9 @@
     function selectedDiceUpdated(player, dice) {
         viewModel.selectedDice(dice);
         viewModel.playerRolling(player);
+        if (player == viewModel.me) {
+            viewModel.mySelectedDice(dice);
+        }
     }
 
     function errorMessage(message) {

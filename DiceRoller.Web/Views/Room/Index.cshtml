@@ -41,8 +41,20 @@
                             <span class="die" data-bind="text: $data.Die, attr:{'data-die': $data.Die}, click: $parent.dieRemoveClicked"></span>
                         </li>
                     </ul>
+
                     <button class="btn btn-info" type="button">Roll</button>
                 </div>
+                <div class="col-sm-12">
+                    My Dice
+                    <ul class="selected-dice" data-bind="foreach: mySelectedDice">
+                        <li>
+                            <span class="die" data-bind="text: $data.Die, attr:{'data-die': $data.Die}, click: $parent.dieRemoveClicked"></span>
+                        </li>
+                    </ul>
+
+                    <!--button class="btn btn-info" type="button">Roll</button-->
+                </div>
+
             </div>
         </div>
 
