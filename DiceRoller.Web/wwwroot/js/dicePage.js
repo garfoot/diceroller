@@ -1,4 +1,4 @@
-﻿var dicePage = function () {
+﻿var dicePage = (function () {
     let viewModel = {
         players: ko.observableArray(),
         availableDice: ko.observableArray(),
@@ -43,12 +43,12 @@
 
 
     function newPlayer(player) {
-        logToConsole(`New player ${player} joined!`);
+        logToConsole("New player " + player + " joined!");
         viewModel.players.push(player);
     };
 
     function playerLeft(player) {
-        logToConsole(`Player left the room: ${player}`);
+        logToConsole("Player left the room: " + player);
         viewModel.players.remove(player);
     }
 
@@ -70,12 +70,12 @@
 
     function rolledDice(player, results) {
         ///logToConsole(`player ${player}: rolled ${results}`);
-        viewModel.rollResults.push(`player ${player}: rolled ${results}`);
+        viewModel.rollResults.push("player " + player + ": rolled " + results);
     }
 
 
     function errorMessage(message) {
-        logToConsole(`ERROR: ${message}`);
+        logToConsole("ERROR: " + message);
     }
 
     function dieClicked(data, evt) {
@@ -97,6 +97,6 @@
     }
 
     return {
-        init
+        init: init
     };
-}();
+})();

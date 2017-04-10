@@ -1,4 +1,4 @@
-﻿var dice = function() {
+﻿var dice = (function () {
     let diceHub = $.connection.diceHub;
     let callerOptions;
 
@@ -66,12 +66,12 @@
 
 
     return {
-        init,
-        connect,
-        getDiceList,
-        addDie,
-        removeDie,
-        rollDice
+        init: init,
+        connect: connect,
+        getDiceList: getDiceList,
+        addDie: addDie,
+        removeDie: removeDie,
+        rollDice: rollDice
     };
-}();
+})();
 

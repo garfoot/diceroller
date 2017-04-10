@@ -7066,56 +7066,87 @@ ul.selected-dice .die {
 .die-base {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
 }
 .die[data-die='d4'] {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
-  background: url("/img/d4.png") center no-repeat #303030;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  background-image: url("/img/d4.png");
 }
 .die[data-die='d6'] {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
-  background: url("/img/d6.png") center no-repeat #303030;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  background-image: url("/img/d6.png");
 }
 .die[data-die='d8'] {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
-  background: url("/img/d8.png") center no-repeat #303030;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  background-image: url("/img/d8.png");
 }
 .die[data-die='d10'] {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
-  background: url("/img/d10.png") center no-repeat #303030;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  background-image: url("/img/d10.png");
 }
 .die[data-die='d12'] {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
-  background: url("/img/d12.png") center no-repeat #303030;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  background-image: url("/img/d12.png");
 }
 .die[data-die='d20'] {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
-  background: url("/img/d20.png") center no-repeat #303030;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  background-image: url("/img/d20.png");
 }
 .die[data-die='d100'] {
   color: #3498DB;
   display: block;
-  width: 120px;
-  height: 130px;
-  background: url("/img/d100.png") center no-repeat #303030;
-  height: 115px;
+  width: 60px;
+  height: 60px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  background-image: url("/img/d100.png");
 }
