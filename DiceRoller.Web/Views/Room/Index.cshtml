@@ -31,6 +31,11 @@
                 @* Dice rolling area*@
                 <div class="well dice-rolling-area">
                     Roll some dice!
+                    <ul class="roll-results" data-bind="foreach: rollResults">
+                        <li>
+                            <span class="roll-result" data-bind="text: $data"></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="row">
@@ -42,7 +47,7 @@
                         </li>
                     </ul>
 
-                    <button class="btn btn-info" type="button">Roll</button>
+                    <button class="btn btn-info" type="button", data-bind="click: dieRollClicked">Roll</button>
                 </div>
                 <div class="col-sm-12">
                     My Dice

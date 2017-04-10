@@ -4,9 +4,11 @@
         availableDice: ko.observableArray(),
         selectedDice: ko.observableArray(),
         mySelectedDice: ko.observableArray(),
+        rollResults: ko.observableArray(),
         playerRolling: ko.observable(),
         dieClicked: dieClicked,
         dieRemoveClicked: dieRemoveClicked,
+        dieRollClicked: dieRollClicked,
         me: ko.observable(),
 };
 
@@ -23,7 +25,8 @@
                     playerList: updatedPlayerList,
                     diceListUpdated: diceListUpdated,
                     selectedDiceUpdated: selectedDiceUpdated,
-                    error: errorMessage
+                    error: errorMessage,
+                    rolledDice: rolledDice,
                 })
                 .then(function() {
                     dice.connect({
@@ -60,10 +63,16 @@
     function selectedDiceUpdated(player, dice) {
         viewModel.selectedDice(dice);
         viewModel.playerRolling(player);
-        if (player == viewModel.me) {
+        if (player === viewModel.me) {
             viewModel.mySelectedDice(dice);
         }
     }
+
+    function rolledDice(player, results) {
+        ///logToConsole(`player ${player}: rolled ${results}`);
+        viewModel.rollResults.push(`player ${player}: rolled ${results}`);
+    }
+
 
     function errorMessage(message) {
         logToConsole(`ERROR: ${message}`);
@@ -76,6 +85,11 @@
     function dieRemoveClicked(data, evt) {
         dice.removeDie(data);
     }
+
+    function dieRollClicked(data, evt) {
+        dice.rollDice(data);
+    }
+
 
     function logToConsole(message) {
         var currentMessage = $("#consoleMessages").val();

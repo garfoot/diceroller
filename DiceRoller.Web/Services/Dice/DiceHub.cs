@@ -78,5 +78,13 @@ namespace DiceRoller.Web.Services.Dice
 
             Clients.Group(player.CurrentRoom).selectedDice(player.Name, player.Dice);
         }
+
+        public void RollDice()
+        {
+            PlayerInfo player = _playerService.GetPlayerById(Context.ConnectionId);
+            Clients.Group(player.CurrentRoom).rolledDice(player.Name, "4" ); // https://xkcd.com/221/
+
+        }
+
     }
 }

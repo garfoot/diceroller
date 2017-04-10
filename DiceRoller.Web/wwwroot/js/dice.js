@@ -27,6 +27,10 @@
         callerOptions.selectedDiceUpdated && callerOptions.selectedDiceUpdated(player, dice);
     }
 
+    diceHub.client.rolledDice = function (player, dice) {
+        callerOptions.rolledDice && callerOptions.rolledDice(player, dice);
+    }
+
     function init(options) {
         callerOptions = options;
 
@@ -56,13 +60,18 @@
     function removeDie(die) {
         diceHub.server.removeDie(die);
     }
+    function rollDice(die) {
+        diceHub.server.rollDice();
+    }
+
 
     return {
         init,
         connect,
         getDiceList,
         addDie,
-        removeDie
+        removeDie,
+        rollDice
     };
 }();
 
