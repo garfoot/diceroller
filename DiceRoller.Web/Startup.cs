@@ -18,9 +18,8 @@ namespace DiceRoller.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddAntiforgery();
-            services
-                .AddMvc();
+            services.AddAntiforgery()
+                    .AddMvc();
 
             services.AddSignalR(options =>
             {
@@ -43,14 +42,14 @@ namespace DiceRoller.Web
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                app.UseDeveloperExceptionPage()
+                   .UseBrowserLink();
             }
 
-            app.UseStaticFiles();
-            app.UseMvc();
-            app.UseWebSockets();
-            app.UseSignalR();
+            app.UseStaticFiles()
+               .UseMvc()
+               .UseWebSockets()
+               .UseSignalR();
 
             appLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose());
         }
