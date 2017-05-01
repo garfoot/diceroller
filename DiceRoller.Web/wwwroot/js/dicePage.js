@@ -70,7 +70,7 @@
 
     function rolledDice(player, results) {
         ///logToConsole(`player ${player}: rolled ${results}`);
-        viewModel.rollResults.push("player " + player + ": rolled " + results);
+        viewModel.rollResults.push({ player:player, results:results }); //    .push("player " + player + ": rolled " + results.total );
     }
 
 

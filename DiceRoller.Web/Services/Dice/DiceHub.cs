@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DiceRoller.Web.Services.Players;
 using DiceRoller.Web.Services.Rooms;
 using Microsoft.AspNetCore.SignalR;
+using DiceRoller.Web.Services.Dice.Roller;
 
 namespace DiceRoller.Web.Services.Dice
 {
@@ -82,7 +83,12 @@ namespace DiceRoller.Web.Services.Dice
         public void RollDice()
         {
             PlayerInfo player = _playerService.GetPlayerById(Context.ConnectionId);
-            Clients.Group(player.CurrentRoom).rolledDice(player.Name, "4" ); // https://xkcd.com/221/
+
+            var diceRoller = new DiceRollerService();
+
+            var results = diceRoller.Roll( player.Dice.Select(i => $"1{i.ToString()}" ));   //   map { "1$_" }  @sassa
+
+            Clients.Group(player.CurrentRoom).rolledDice(player.Name, results ); // https://xkcd.com/221/
 
         }
 

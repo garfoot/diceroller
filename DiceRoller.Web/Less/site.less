@@ -61,6 +61,34 @@ ul.selected-dice .die {
     cursor: pointer;
 }
 
+.roll-results .player-name {
+    font-weight: bold;
+    color: @brand-info;
+}
+
+.roll-result {
+    font-weight: bold;
+    color: @brand-success;
+}
+
+.roll-result-dice {
+    .list-inline;
+    .list-unstyled;
+    display: inline;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.roll-result-dice::before{
+    content: "[";
+    margin-left: 10px;
+}
+
+.roll-result-dice::after {
+    content: "]";
+    margin-right: 10px;
+}
+
 
 .die-base {
     color: @dice-base;

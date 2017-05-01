@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace DiceRoller.Web.Services.Dice.Roller
 {
-    public class DiceRoller
+    public class DiceRollerService
     {
         public DiceRollResult Roll(params string[] diceList)
         {

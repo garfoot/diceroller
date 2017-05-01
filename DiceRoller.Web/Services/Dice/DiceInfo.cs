@@ -47,5 +47,11 @@ namespace DiceRoller.Web.Services.Dice
         {
             return !Equals(left, right);
         }
+
+        public override string ToString()
+        {
+            return Die;
+        }
+
     }
 }
