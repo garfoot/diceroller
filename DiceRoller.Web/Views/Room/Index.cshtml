@@ -35,7 +35,11 @@
                         <li>
                             Player <span class="player-name" data-bind="text: player"></span> rolled
                             <span class="roll-result" data-bind="text: results.total"></span>
-                            <ul class="roll-result-dice" data-bind="foreach: results.rolls"><li><span data-bind="text: spec"></span>=<span  class="roll-result" data-bind="text: total"></span></li></ul>
+                            <ul class="roll-result-dice" data-bind="foreach: results.rolls">
+                                <li>
+                                    <span data-bind="text: spec"></span> = <span class="roll-result" data-bind="text: total, css: { 'roll-result-fail': total == 1 }"></span>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

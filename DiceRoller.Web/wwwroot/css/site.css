@@ -7071,6 +7071,10 @@ ul.selected-dice .die {
   font-weight: bold;
   color: #00bc8c;
 }
+.roll-result-fail {
+  font-weight: bold;
+  color: #E74C3C;
+}
 .roll-result-dice {
   margin-left: -5px;
   padding-left: 0;
